@@ -8,7 +8,7 @@ ENV SECRET_KEY="ThisisNotRealKey"
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install --no-install-recommends -y wget git rsyslog curl
+RUN apt-get install --no-install-recommends -y wget git rsyslog curl ca-certificates
 RUN apt-get install --no-install-recommends -y libpq-dev patch
 RUN apt-get install --no-install-recommends -y ssh htop
 
@@ -22,7 +22,7 @@ RUN touch /app/.env
 #COPY .git ./.git
 
 ## Install nodejs
-#RUN update-ca-certificates
+RUN update-ca-certificates
 # install node 16
 RUN touch install_node.sh
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x -o install_node.sh
