@@ -21,8 +21,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN touch /app/.env
 #COPY .git ./.git
 
-# Install nodejs
-RUN update-ca-certificates
+## Install nodejs
+#RUN update-ca-certificates
 # install node 16
 RUN touch install_node.sh
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x -o install_node.sh
