@@ -53,7 +53,7 @@ RUN cp /root/.bashrc /home/docker
 RUN cp /root/.profile /home/docker
 
 # For Linux
-RUN groupadd -g 200000 container
+RUN groupadd -g 20000 container
 RUN useradd -g 20000 -u 200000 container -s /bin/bash
 RUN mkdir /home/container
 RUN chown container.container /home/container
