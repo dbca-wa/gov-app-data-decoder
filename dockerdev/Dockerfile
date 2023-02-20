@@ -15,7 +15,6 @@ RUN apt-get install --no-install-recommends -y ssh htop
 WORKDIR /app
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
-COPY timezone /etc/timezone
 ENV TZ=Australia/Perth
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -57,7 +56,7 @@ RUN cp /root/.bashrc /home/docker
 RUN cp /root/.profile /home/docker
 
 # For Linux
-RUN groupadd -g 20000 container
+RUN groupadd -g 200000 container
 RUN useradd -g 20000 -u 200000 container -s /bin/bash
 RUN mkdir /home/container
 RUN chown container.container /home/container
