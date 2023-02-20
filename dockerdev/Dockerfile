@@ -19,7 +19,7 @@ ENV TZ=Australia/Perth
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN touch /app/.env
-COPY .git ./.git
+#COPY .git ./.git
 
 # Install nodejs
 RUN update-ca-certificates
