@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install --no-install-recommends -y wget git rsyslog curl ca-certificates
 RUN apt-get install --no-install-recommends -y libpq-dev patch
-RUN apt-get install --no-install-recommends -y ssh htop
+RUN apt-get install --no-install-recommends -y ssh htop 
 
 WORKDIR /app
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
@@ -37,6 +37,8 @@ RUN apt-get install --no-install-recommends -y screen
 RUN apt-get install --no-install-recommends -y virtualenv
 RUN apt-get install --no-install-recommends -y graphviz
 RUN apt-get install --no-install-recommends -y python3-pydot
+RUN npm install -g expo-cli
+RUN npm install -g eas-cli
 
 RUN openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj  "/C=AU/ST=Western Australia/L=Perth/O=Development Environment/OU=IT Department/CN=example.com"  -keyout /etc/ssl/private/selfsignedssl.key -out /etc/ssl/private/selfsignedssl.crt
 
