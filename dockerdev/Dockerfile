@@ -50,7 +50,6 @@ RUN cd $ANDROID_SDK_ROOT && wget https://dl.google.com/android/repository/comman
 RUN cd $ANDROID_SDK_ROOT && unzip commandlinetools-linux-9477386_latest.zip
 RUN yes |  sdkmanager --licenses --sdk_root=$ANDROID_SDK_ROOT
 RUN chmod 777 $ANDROID_SDK_ROOT
-RUN chown -R container.container $ANDROID_SDK_ROOT
 RUN npm install -g expo-cli
 RUN npm install -g eas-cli
 
@@ -78,6 +77,7 @@ RUN cp /root/.profile /home/container
 
 # Development Defaults
 
+RUN chown -R container.container $ANDROID_SDK_ROOT
 
 EXPOSE 8080
 CMD ["/bin/bash"]
