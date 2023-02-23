@@ -24,9 +24,7 @@ ENV TZ=Australia/Perth
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN touch /app/.env
-#COPY ./packages/commandlinetools-linux-9477386_latest.zip $ANDROID_SDK_ROOT
-RUN cd $ANDROID_SDK_ROOT && wget https://dl.google.com/android/repository/commandlinetools-win-9477386_latest.zip
-RUN cd $ANDROID_SDK_ROOT && unzip commandlinetools-linux-9477386_latest.zip
+
 #COPY .git ./.git
 
 ## Install nodejs
@@ -46,6 +44,10 @@ RUN apt-get install --no-install-recommends -y virtualenv
 RUN apt-get install --no-install-recommends -y graphviz
 RUN apt-get install --no-install-recommends -y python3-pydot
 RUN apt-get install --no-install-recommends -y default-jdk default-jre android-sdk google-android-ndk-installerd
+
+#COPY ./packages/commandlinetools-linux-9477386_latest.zip $ANDROID_SDK_ROOT
+RUN cd $ANDROID_SDK_ROOT && wget https://dl.google.com/android/repository/commandlinetools-win-9477386_latest.zip
+RUN cd $ANDROID_SDK_ROOT && unzip commandlinetools-linux-9477386_latest.zip
 
 RUN npm install -g expo-cli
 RUN npm install -g eas-cli
