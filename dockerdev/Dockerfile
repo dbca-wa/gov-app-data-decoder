@@ -46,7 +46,7 @@ RUN apt-get install --no-install-recommends -y python3-pydot
 RUN apt-get install --no-install-recommends -y default-jdk default-jre android-sdk google-android-ndk-installer
 
 #COPY ./packages/commandlinetools-linux-9477386_latest.zip $ANDROID_SDK_ROOT
-RUN cd $ANDROID_SDK_ROOT && wget https://dl.google.com/android/repository/commandlinetools-win-9477386_latest.zip
+RUN cd $ANDROID_SDK_ROOT && wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
 RUN cd $ANDROID_SDK_ROOT && unzip commandlinetools-linux-9477386_latest.zip
 
 RUN npm install -g expo-cli
